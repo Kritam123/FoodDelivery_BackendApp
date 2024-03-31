@@ -29,7 +29,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
     let query: any = {};
 
     query["city"] = new RegExp(city, "i");
-    const cityCheck = await Restaurant.countDocuments(query);
+    const cityCheck = await Restaurant?.countDocuments(query);
     if (cityCheck === 0) {
       return res.status(404).json({
         data: [],
@@ -67,7 +67,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
       .limit(pageSize)
       .lean();
 
-    const total = await Restaurant.countDocuments(query);
+    const total = await Restaurant?.countDocuments(query);
 
     const response = {
       data: restaurants,
