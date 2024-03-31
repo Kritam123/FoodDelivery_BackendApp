@@ -13,7 +13,7 @@ declare global {
 }
 
 export const jwtCheck = auth({
-  audience: 'FootDelivery-Mern',
+  audience: 'foodDeliveryApi',
   issuerBaseURL: 'https://dev-lxpxps4titfmoe37.us.auth0.com/',
   tokenSigningAlg: 'RS256'
 });
