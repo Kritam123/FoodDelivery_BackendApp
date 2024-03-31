@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv"
 import cors from "cors"
 import cookieParser from "cookie-parser"
@@ -16,13 +16,11 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(helmet());
 
-
+app.get("/health",(req:Request,res:Response)=>{
+    res.status(200).json({message:"Server working!"});
+});
 // userRoutes
 app.use("/api/v1/user",userRouter);
-
-app.get("/",(req,res)=>{
-    res.status(200).json({message:"Server working!"})
-});
 // dbConnect
 dbConnect();
 
